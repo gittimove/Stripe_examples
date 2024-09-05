@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "template_version": 0
+  },
+  "fixtures": [
+    {
+      "name": "pro_product",
+      "path": "/v1/products",
+      "method": "post",
+      "params": {
+        "name": "Coach Pro Package"
+      }
+    },
+    {
+      "name": "pro_price",
+      "path": "/v1/prices",
+      "method": "post",
+      "params": {
+        "product": "${pro_product:id}",
+        "lookup_key": "pro_basic",
+        "currency": "eur",
+        "unit_amount": 3000,
+        "recurring": {
+          "interval": "month"
+        },
+        "metadata": {
+          "sample": "fixed-price"
+        }
+      }
+    },
+    {
+      "name": "pre_product",
+      "path": "/v1/products",
+      "method": "post",
+      "params": {
+        "name": "Coach Premium Package"
+      }
+    },
+    {
+      "name": "pre_price",
+      "path": "/v1/prices",
+      "method": "post",
+      "params": {
+        "product": "${pre_product:id}",
+        "lookup_key": "pre_premium",
+        "currency": "eur",
+        "unit_amount": 6000,
+        "recurring": {
+          "interval": "month"
+        },
+        "metadata": {
+          "sample": "fixed-price"
+        }
+      }
+    }
+  ]
+}
